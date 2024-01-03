@@ -1,6 +1,20 @@
 ####################################################
+# fortran_utils specific .gitignore options:
+`
+# auto-generated config.f90 with paths
+src/config/config.f90
+
+####################################################
+# Fortran specific .gitignore options:
+
+# Auto-generated include files
+*.mod
+
+####################################################
 # GeoIPS Environment specific .gitignore options:
 
+# auto-generated plugin registry file
+registered_plugins.json
 # auto-generated version file, created at run-time
 _version.py
 # auto-generated diff images for test outputs
