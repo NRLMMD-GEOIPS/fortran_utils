@@ -21,15 +21,19 @@ all:
 	make -C src/config
 	make -C src/orderpack
 	make -C src/utils
+	make -C src/utils $(REPO_DIR)/fortran_utils/lib/clip.o
 	make -C src/utils $(REPO_DIR)/fortran_utils/lib/datetime_utils.o
 	make -C src/utils $(REPO_DIR)/fortran_utils/lib/file_io_utils.o
+	make -C src/utils $(REPO_DIR)/fortran_utils/lib/normalize.o
+	make -C src/utils $(REPO_DIR)/fortran_utils/lib/percentile.o
 	make -C src/utils $(REPO_DIR)/fortran_utils/lib/prettyprint.o
 	make -C src/utils $(REPO_DIR)/fortran_utils/lib/string_operations.o
 	# Copy to shared lib and inc for other packages build
 	mkdir -p $(SHARED_LIB)
 	mkdir -p $(SHARED_INC)
-	cp $(REPO_DIR)/fortran_utils/lib/* $(SHARED_LIB)
-	cp $(REPO_DIR)/fortran_utils/inc/* $(SHARED_INC)
+	cp $(REPO_DIR)/fortran_utils/lib/*.o $(SHARED_LIB)
+	cp $(REPO_DIR)/fortran_utils/lib/*.so $(SHARED_LIB)
+	cp $(REPO_DIR)/fortran_utils/inc/*.mod $(SHARED_INC)
 
 clean:
 	make -C src/config clean
