@@ -1,0 +1,13 @@
+bug fix:
+- title: 'Add basic flake8 configuration to resolve CI lint errors'
+  description: >
+    This package was missing a flake8 configuration file, causing lint errors in
+    the GeoIPS integration tests, such as E501 line too long and D104 missing
+    docstring. This adds a simple `.flake8` file, based on that of core GeoIPS, to
+    address these otherwise spurious lint issues.
+  files:
+    added:
+    - '.flake8'
+  related-issue:
+    number: 1510
+    repo_url: 'https://github.com/NRLMMD-GEOIPS/geoips/'
